@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    {% if user.is_authenticated %}
+    <div>
+        <a href="{% url 'logout' %}"><button class="loginbtn">Logout</button></a>
+        <h1 style="color: white;">Demo Restaurant Website</h1>
+        <p style="color: white;">(Logged in as <strong>{{user.username}}.</strong>)</p>
+    </div>
+    {% else %}
+    <a href="{% url 'login' %}"><button class="loginbtn" >Login</button></a>
+    <h1 style="color: white;">Demo Restaurant Website</h1>
+    {% endif %}
+</body>
+</html>

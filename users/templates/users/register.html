@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <title>Login and Signup Page</title>
+</head>
+<body>
+    <div class="container">
+        <form method="post">
+        <div class="form" id="signupForm">
+            {% csrf_token %}
+            <h2>Sign Up</h2>
+            <div class="input-group">
+                <label for="signupUsername">Username</label>
+                <input type="text" id="signupUsername" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="signupPassword">Password</label>
+                <input type="password" id="signupPassword" name="password" required>
+            </div>
+            <div class="input-group">
+                <label for="signupConfirmPassword">Confirm Password</label>
+                <input type="password" id="signupConfirmPassword" name="confirmpassword" required>
+            </div>
+            <div class="btn-grp">
+                <button onclick="signup()">Sign Up</button>
+                <p>Already Registered ? <a href="{% url 'login' %}">click here</a></p>
+            </div>
+            <p class="error" id="signupError"></p>
+        </div>
+        </form>
+    </div>
+    <script>
+function signup() {
+    const username = document.getElementById('signupUsername').value.trim();
+    const password = document.getElementById('signupPassword').value.trim();
+    const confirmpassword = document.getElementById('signupConfirmPassword').value.trim();
+    const signupError = document.getElementById('signupError');
+
+    if (username === '' || password === '' || confirmpassword === '') {
+        signupError.innerText = 'Please enter both username and password.';
+        return;
+    }
+    if(password === confirmpassword){
+        signupError.innerText = '';
+    }
+    else{
+        signupError.innerText = 'Entered passwords should match.';
+    }
+}
+
+    </script>
+</body>
+</html>

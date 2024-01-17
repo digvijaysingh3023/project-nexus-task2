@@ -1,0 +1,106 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-image: linear-gradient(to right bottom, #0f110f, #0c1815, #041e1f, #00232e, #00263d, #002d51, #003464, #193977, #234697, #3353b8, #475fda, #5f6bfb);    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.loginbtn{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: white;
+}
+.loginbtn a{
+    text-decoration: none;
+    text-decoration-line: none;
+    color: white;
+}
+
+.container {
+    /* background-image: linear-gradient(
+        to right,
+        rgb(149, 148, 230),
+        rgb(64, 35, 83)
+      );      */
+      background-image: linear-gradient(to right, #a8c0ff, #3f2b96);
+
+      /* backdrop-filter: blur(300px); */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 80%; /* Updated width for responsiveness */
+    max-width: 400px; /* Added max-width for larger screens */
+}
+
+.form {
+    padding: 20px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background: #4caf50;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.error {
+    color: #d01111;
+    margin-top: 5px;
+}
+.btn-grp{
+    display: flex;
+    justify-content: space-between;
+}
+.btn-grp p{
+    font-size: small;
+}
+.msgs {
+    position: absolute;;
+    top: 5px;
+    right: 10px;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 3px 3px 3px 3px;
+}
+.success-msg{
+    color: #270;
+    background-color: #DFF2BF;
+  }
+  .error-msg {
+    color: #D8000C;
+    background-color: #FFBABA;
+  }
+.btn-grp a{
+    color: rgb(54 163 221);
+    cursor: pointer;    
+}
+
+/* Responsive styles */
+@media screen and (max-width: 600px) {
+    .container {
+        width: 90%; /* Adjust width for smaller screens */
+    }
+}

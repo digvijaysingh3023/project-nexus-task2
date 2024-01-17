@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <title>Login and Signup Page</title>
+</head>
+<body>
+    {% if messages %}
+    {% for message in messages %}
+    <div class="msgs {{ message.tags }}-msg">
+        <i class="fa fa-check"></i>
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+    <div class="container">
+        <form method="POST">
+            {% csrf_token %}
+        <div class="form" id="loginForm">
+            <h2>Login</h2>
+            <div class="input-group">
+                <label for="loginUsername">Username</label>
+                <input type="text" id="loginUsername" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="loginPassword">Password</label>
+                <input type="password" id="loginPassword" name="password" required>
+            </div>
+            <div class="btn-grp">
+                <button type="submit" onclick="login()">Login</button>
+                <p>Not Registered ? <a href="{% url 'register' %}">click here</a></p>
+
+            </div> 
+            <p class="error" id="loginError"></p>
+        </div>
+    </form>
+    </div>
+
+    <script>
+        function login() {
+    const username = document.getElementById('loginUsername').value.trim();
+    const password = document.getElementById('loginPassword').value.trim();
+    const loginError = document.getElementById('loginError');
+
+    if (username === '' || password === '') {
+        loginError.innerText = 'Please enter both username and password.';
+        return;
+    }
+
+    loginError.innerText = '';
+}
+
+    </script>
+</body>
+</html>
